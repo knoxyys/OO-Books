@@ -3,25 +3,42 @@ class Book:
         self.title = title
         self.author = author
         self.published = published
-        self.rating = None
+        self.rating = None # this wasnt in the thing but idk it seems useful
     
     def display_details(self):
-        print(f"Title: {self.title}, Author: {self.author}, Published: {self.published}")
+        return f"Title: {self.title}, Author: {self.author}, Published: {self.published}"
     
     def rate_book(self, rating):
         self.rating = rating
-        print(f"Rating for {self.title}: {self.rating}")
+        return f"Rating for {self.title}: {self.rating}"
+    
+    def review_book(self, review):
+        return f"Review for {self.title}: {review}"
 
 class Novel(Book):
-    def __init__(self, title, author, published, genre):
+    def __init__(self, title, author, published, genre, num_chapters):
         super().__init__(title, author, published)
         self.genre = genre
+        self.num_chapters = num_chapters
+    
+    def calcReadTime(self, chaptersPerHour):
+        return self.num_chapters / chaptersPerHour
 
-
+class Magazine(Book):
+    def __init__(self, title, author, published, issue_number):
+        super().__init__(title, author, published)
+        self.issue_number = issue_number
+        self.num_articles = 0
+    
+    def get_article_by_title(self, title):
+        return f"Article: {title} in {self.title}" # this doesnt really do anything
 
 minecraft_book = Novel("Minecraft: The Island", "Max Brooks", 2017, "Adventure")
-minecraft_book.display_details()
+print(minecraft_book.display_details())
+lucas_book = Novel("Lucas", "Lucas", 2023, "Adventure")
+print(lucas_book.display_details())
 
+# finish this as well!
 
 
 # Write Python code for both the Novel and Magazine classes modelled in the previous slide. Include a suitable constructor method which
