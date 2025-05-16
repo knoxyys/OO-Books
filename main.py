@@ -3,13 +3,11 @@ class Book:
         self.title = title
         self.author = author
         self.published = published
-        self.rating = None # this wasnt in the thing but idk it seems useful
     
     def display_details(self):
         return f"Title: {self.title}, Author: {self.author}, Published: {self.published}"
     
     def rate_book(self, rating):
-        self.rating = rating
         return f"Rating for {self.title}: {self.rating}"
     
     def review_book(self, review):
@@ -31,14 +29,19 @@ class Magazine(Book):
         self.num_articles = 0
     
     def get_article_by_title(self, title):
-        return f"Article: {title} in {self.title}" # this doesnt really do anything
+        return f"Article: {title} in {self.title}" # this doesnt really do anything but oh well it was in the instructions
 
-minecraft_book = Novel("Minecraft: The Island", "Max Brooks", 2017, "Adventure")
-print(minecraft_book.display_details())
-lucas_book = Novel("Lucas", "Lucas", 2023, "Adventure")
+software_textbook = Novel("Software Textbook", "John Software", 1986, "Horror", 12)
+print(software_textbook.calcReadTime(2))
+print(software_textbook.display_details())
+lucas_book = Novel("Lucastitle", "Lucasauthor", 2023, "Adventure", 999)
 print(lucas_book.display_details())
+print(lucas_book.calcReadTime(2))
 
-# finish this as well!
+software_magazine = Magazine("Software Magazine", "John Software", 1986, 1)
+print(software_magazine.display_details())
+lucas_magazine = Magazine("Lucas Magazine", "Lucasauthor", 2023, 2)
+print(lucas_magazine.display_details())
 
 
 # Write Python code for both the Novel and Magazine classes modelled in the previous slide. Include a suitable constructor method which
