@@ -18,6 +18,11 @@ class Novel(Book):
         super().__init__(title, author, published)
         self.genre = genre
         self.num_chapters = num_chapters
+        
+    def display_details(self):  # polymorphism HERE bc it overrides the first display_details i think?
+        print(f"{self.title} by {self.author}")
+        print(f"Genre: {self.genre}")
+        print(f"Chapters: {self.num_chapters}")
     
     def calcReadTime(self, chaptersPerHour):
         return self.num_chapters / chaptersPerHour
